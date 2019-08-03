@@ -1,5 +1,6 @@
 $(window).on("load", function () {
     $(".loader-wrapper").fadeOut("slow");
+    $("body,html").css({ "overflow": "auto" });
 });
 
 if (window.innerHeight >= 1024 && (window.innerWidth <= 1024)) {
