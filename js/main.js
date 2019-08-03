@@ -1,4 +1,3 @@
-
 $(window).on("load", function () {
     $(".loader-wrapper").fadeOut("slow");
 });
@@ -25,5 +24,4 @@ $(document).ready(function () {
             $(".modal-content").append(newImg);
         }
     });
-
 });
