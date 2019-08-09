@@ -9,20 +9,34 @@ if (window.innerHeight >= 1024 && (window.innerWidth <= 1024)) {
 
 $(document).ready(function () {
     var img, oldImg, newImg;
+    var imgarr = ["http://localhost:5500/img/Closeup_Ear_botany_Nature_7776x5184.jpg",
+        "http://localhost:5500/img/luca-bravo-24241.jpg",
+        "http://localhost:5500/img/nik-shuliahin-359344.jpg"];
     $("#hero a img").click(function () {
         img = $(this)[0];
-        oldImg = $(".modal-content img")[0];
+        oldImg = $(".modal-content .image img")[0];
         newImg = new Image();
         if (oldImg !== undefined) {
             if (img.src === oldImg.src) {
 
             } else {
                 newImg.src = img.src;
-                $(".modal-content img").replaceWith(newImg);
+                $(".modal-content .image img").replaceWith(newImg);
             }
         } else {
             newImg.src = img.src;
-            $(".modal-content").append(newImg);
+            $(".modal-content .image").append(newImg);
         }
+    });
+    $("#next").click(function () {
+        oldImg = $(".modal-content .image img")[0];
+        let i = imgarr.indexOf(oldImg.src);
+        if (i === imgarr.length - 1) {
+            i = -1;
+        }
+        newImg.src = imgarr[++i];
+        $(".modal-content .image img").replaceWith(newImg);
+        console.log(i);
+
     });
 });

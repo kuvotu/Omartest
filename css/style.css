@@ -57,7 +57,9 @@ button span{
 .modal a{
     font-size:3em;
 }
-
+#next,#prev{
+    pointer-events: auto;
+}
 .loader-wrapper {
     width: 100%;
     height: 100%;
