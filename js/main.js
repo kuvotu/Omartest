@@ -28,15 +28,29 @@ $(document).ready(function () {
             $(".modal-content .image").append(newImg);
         }
     });
-    $("#next").click(function () {
+
+    $("#next").click(function (e) {
         oldImg = $(".modal-content .image img")[0];
         let i = imgarr.indexOf(oldImg.src);
-        if (i === imgarr.length - 1) {
+        if (i >= imgarr.length - 1) {
             i = -1;
         }
         newImg.src = imgarr[++i];
         $(".modal-content .image img").replaceWith(newImg);
+        e.preventDefault();
         console.log(i);
 
+    });
+
+    $("#prev").click(function (e) {
+        oldImg = $(".modal-content .image img")[0];
+        let i = imgarr.indexOf(oldImg.src);
+        if (i <= 0) {
+            i = imgarr.length;
+        }
+        $(".modal-content .image img").replaceWith(newImg);
+        newImg.src = imgarr[--i];
+        e.preventDefault();
+        console.log(i);
     });
 });
